@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A friendly beginner Chinese learning class with dialogue, vocabulary and a quiz.">
+<title>Chinese Learning Classes | Welcome</title>
+<style>
+:root{--ink:#2b1720;--red:#a92832;--deep:#641e2a;--gold:#e9bd70;--cream:#fff8ed;--paper:#fffdf8;--muted:#75636a;--green:#28785b}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Georgia,"Times New Roman",serif;color:var(--ink);background:var(--cream)}
+body:before{content:"";position:fixed;inset:0;z-index:-1;opacity:.12;background-image:radial-gradient(circle at 15% 20%,#c68c50 0 2px,transparent 3px),radial-gradient(circle at 85% 70%,#a92832 0 2px,transparent 3px),linear-gradient(135deg,transparent 48%,#d8b98e 49%,transparent 51%);background-size:42px 42px,56px 56px,90px 90px}
+header{min-height:92vh;color:white;background:linear-gradient(120deg,rgba(49,13,22,.91),rgba(116,26,38,.83)),radial-gradient(circle at 80% 20%,#d99a55,transparent 35%);position:relative;display:flex;flex-direction:column;overflow:hidden}
+nav{display:flex;justify-content:space-between;align-items:center;padding:22px clamp(18px,6vw,80px);border-bottom:1px solid #ffffff30}
+.brand{font-size:1.15rem;letter-spacing:2px;font-weight:bold}.brand span{color:var(--gold)}
+nav a{color:#fff;text-decoration:none;margin-left:22px;font:600 .9rem Arial,sans-serif}nav a:hover{color:var(--gold)}
+.hero{width:min(1120px,90%);margin:auto;display:grid;grid-template-columns:1.3fr .7fr;align-items:center;gap:40px;padding:70px 0}
+.eyebrow{color:var(--gold);letter-spacing:4px;text-transform:uppercase;font:700 .75rem Arial,sans-serif}
+h1{font-size:clamp(3rem,7vw,6.3rem);line-height:.98;margin:18px 0 24px;max-width:800px}
+.hero p{font:1.1rem/1.8 Arial,sans-serif;color:#f8e9e5;max-width:600px}
+.btn{display:inline-block;border:0;border-radius:999px;padding:14px 24px;background:var(--gold);color:#35151b;text-decoration:none;font:700 .95rem Arial,sans-serif;cursor:pointer;transition:.2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px #16070a55}.btn.outline{background:transparent;border:1px solid #fff;color:#fff;margin-left:10px}
+.seal{width:min(290px,70vw);aspect-ratio:1;border:2px solid #e9bd70;border-radius:50%;display:grid;place-items:center;margin:auto;position:relative;box-shadow:0 0 0 12px #e9bd7015,0 0 0 26px #e9bd700c}
+.seal:before,.seal:after{content:"";position:absolute;border:1px solid #e9bd7070;border-radius:50%;inset:18px}.seal:after{inset:34px}
+.seal strong{font-size:5rem;color:var(--gold);font-weight:normal}.seal small{position:absolute;bottom:54px;letter-spacing:4px;font: .7rem Arial,sans-serif}
+main{width:min(1120px,91%);margin:auto}
+section{padding:82px 0}.section-kicker{font:700 .75rem Arial,sans-serif;letter-spacing:3px;text-transform:uppercase;color:var(--red)}
+h2{font-size:clamp(2.2rem,4vw,3.6rem);margin:12px 0 16px;color:var(--deep)}
+.lead{font:1.03rem/1.8 Arial,sans-serif;color:var(--muted);max-width:760px}
+.lesson-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:start}
+.panel{background:var(--paper);border:1px solid #eadbc8;border-radius:20px;padding:clamp(20px,4vw,34px);box-shadow:0 14px 40px #54202a0c}
+.panel h3{margin-top:0;color:var(--deep);font-size:1.45rem}
+.dialogue{border-left:4px solid var(--gold);padding:12px 0 12px 18px;margin:14px 0;font:1rem/1.75 Arial,sans-serif}
+.dialogue p{margin:7px 0}.speaker{font-weight:bold;color:var(--red)}
+.translation{color:var(--muted);font-size:.92rem}
+.pinyin{color:#8b4d37;font-style:italic}
+.tip{background:#f8eee0;border-radius:12px;padding:16px;font: .93rem/1.6 Arial,sans-serif;margin-top:18px}
+.vocab{width:100%;border-collapse:collapse;font: .95rem Arial,sans-serif;margin-top:12px}
+.vocab th{text-align:left;color:var(--deep);background:#f7ead8}.vocab th,.vocab td{padding:12px 10px;border-bottom:1px solid #eee2d3}
+.vocab td:first-child{font-size:1.3rem;font-weight:bold}.vocab tr:hover{background:#fff8ee}
+.word-tools{display:flex;gap:10px;flex-wrap:wrap;margin:15px 0}.search{flex:1;min-width:180px;border:1px solid #ddcbb5;border-radius:10px;padding:12px;font:1rem Arial,sans-serif}
+.quiz-wrap{background:linear-gradient(140deg,#4c1723,#842b35);color:white;border-radius:28px;padding:clamp(22px,5vw,48px);box-shadow:0 18px 50px #42101c30}
+.quiz-wrap h2{color:white}.quiz-wrap .lead{color:#f2dfe0}
+.quiz-card{background:#fffaf2;color:var(--ink);border-radius:18px;padding:24px;margin-top:24px}
+.progress{height:8px;background:#eadbc8;border-radius:10px;overflow:hidden;margin:15px 0 22px}.progress span{display:block;height:100%;width:0;background:var(--red);transition:width .3s}
+.question{font:700 1.15rem/1.5 Arial,sans-serif;margin-bottom:18px}
+.answers{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.answer{padding:14px;border:1px solid #e4d3c0;background:white;border-radius:12px;text-align:left;font: .98rem Arial,sans-serif;cursor:pointer;color:var(--ink)}
+.answer:hover{border-color:var(--red);background:#fff4e8}.answer.correct{border-color:var(--green);background:#e9f5ee}.answer.wrong{border-color:#bd4242;background:#fff0ee}
+.quiz-bottom{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:20px;font: .9rem Arial,sans-serif}
+#feedback{min-height:26px;font: .95rem Arial,sans-serif;margin-top:15px}.score{text-align:center;padding:20px}.score strong{font-size:3rem;color:var(--red)}
+footer{text-align:center;padding:35px 15px;background:#35131d;color:#f4dfd0;font: .85rem Arial,sans-serif}
+@media(max-width:760px){.hero{grid-template-columns:1fr;text-align:center;padding:55px 0}.seal{width:190px}.hero p{margin:0 auto 25px}.lesson-grid{grid-template-columns:1fr}nav{flex-wrap:wrap;gap:12px}nav a{margin:0 0 0 12px}.answers{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header id="home">
+  <nav><div class="brand">朱红 <span>•</span> CHINESE CLASS</div><div><a href="#lesson">Lesson</a><a href="#vocabulary">Vocabulary</a><a href="#quiz">Quiz</a></div></nav>
+  <div class="hero">
+    <div>
+      <div class="eyebrow">Your first step into Mandarin</div>
+      <h1>Welcome to<br>Chinese Learning Classes!</h1>
+      <p>Learn Chinese in an easy, friendly way. Start with a simple conversation, understand every word, practise pronunciation, and finish with a fun quiz.</p>
+      <a class="btn" href="#lesson">Start learning</a><a class="btn outline" href="#quiz">Take the quiz</a>
+    </div>
+    <div class="seal"><strong>学</strong><small>LEARN • SPEAK • GROW</small></div>
+  </div>
+</header>
+
+<main>
+<section id="lesson">
+  <div class="section-kicker">Page 02 • Lesson 1</div>
+  <h2>Learn Chinese through a passage</h2>
+  <p class="lead">The easiest way to begin is to read a short conversation, understand who is speaking, and connect each Chinese sentence with its pinyin and English meaning.</p>
+  <div class="lesson-grid">
+    <article class="panel">
+      <h3>Dialogue 1 — Welcome to Taiwan!</h3>
+      <p class="translation">Read the Chinese line first, then use the pinyin to practise saying it aloud.</p>
+      <div class="dialogue">
+        <p><span class="speaker">明華 Mínghuá:</span> 請問你是陳月美小姐嗎？</p>
+        <p class="pinyin">Qǐngwèn nǐ shì Chén Yuèměi xiǎojiě ma?</p>
+        <p class="translation">Excuse me, are you Miss Chen Yuemei?</p>
+      </div>
+      <div class="dialogue">
+        <p><span class="speaker">月美 Yuèměi:</span> 是的。謝謝你來接我們。</p>
+        <p class="pinyin">Shì de. Xièxie nǐ lái jiē wǒmen.</p>
+        <p class="translation">Yes. Thank you for coming to pick us up.</p>
+      </div>
+      <div class="dialogue">
+        <p><span class="speaker">明華 Mínghuá:</span> 不客氣。我是李明華。</p>
+        <p class="pinyin">Bú kèqi. Wǒ shì Lǐ Mínghuá.</p>
+        <p class="translation">You're welcome. My name is Li Minghua.</p>
+      </div>
+      <div class="dialogue">
+        <p><span class="speaker">月美 Yuèměi:</span> 這是王先生。</p>
+        <p class="pinyin">Zhè shì Wáng xiānsheng.</p>
+        <p class="translation">This is Mr. Wang.</p>
+      </div>
+      <div class="dialogue">
+        <p><span class="speaker">凱文 Kǎiwén:</span> 你好。我姓王，叫凱文。</p>
+        <p class="pinyin">Nǐ hǎo. Wǒ xìng Wáng, jiào Kǎiwén.</p>
+        <p class="translation">Hi. My surname is Wang. My first name is Kaiwen.</p>
+      </div>
+      <div class="dialogue">
+        <p><span class="speaker">明華 Mínghuá:</span> 你們好。歡迎你們來臺灣。</p>
+        <p class="pinyin">Nǐmen hǎo. Huānyíng nǐmen lái Táiwān.</p>
+        <p class="translation">How are you? Welcome to Taiwan.</p>
+      </div>
+    </article>
+    <aside class="panel">
+      <h3>People in the dialogue</h3>
+      <table class="vocab">
+        <tr><th>Name</th><th>Who?</th></tr>
+        <tr><td>陳月美<br><small>Chén Yuèměi</small></td><td>A woman from Vietnam</td></tr>
+        <tr><td>李明華<br><small>Lǐ Mínghuá</small></td><td>A man from Taiwan</td></tr>
+        <tr><td>王凱文<br><small>Wáng Kǎiwén</small></td><td>A man from the US</td></tr>
+      </table>
+      <div class="tip"><strong>Remember:</strong> In Chinese names, the family name (surname) usually comes before the given name. For example, Wáng is the surname and Kǎiwén is the given name.</div>
+    </aside>
+  </div>
+</section>
+
+<section id="vocabulary">
+  <div class="section-kicker">Page 03 • Vocabulary</div>
+  <h2>Understand the words</h2>
+  <p class="lead">These are useful words from the passage. Search for a word or read the table to learn its Chinese character, pinyin, and meaning.</p>
+  <div class="panel">
+    <div class="word-tools"><input id="wordSearch" class="search" type="search" placeholder="Search Chinese, pinyin or meaning..." aria-label="Search vocabulary"><span class="tip" style="margin:0">17 key words</span></div>
+    <table class="vocab" id="vocabTable">
+      <thead><tr><th>Chinese</th><th>Pinyin</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td>你</td><td>nǐ</td><td>you</td></tr>
+        <tr><td>來</td><td>lái</td><td>to come</td></tr>
+        <tr><td>是</td><td>shì</td><td>to be; am/is/are</td></tr>
+        <tr><td>小姐</td><td>xiǎojiě</td><td>Miss; Ms.</td></tr>
+        <tr><td>嗎</td><td>ma</td><td>question particle (used at the end of a yes/no question)</td></tr>
+        <tr><td>接</td><td>jiē</td><td>to meet; to pick someone up</td></tr>
+        <tr><td>我們</td><td>wǒmen</td><td>we; us</td></tr>
+        <tr><td>我</td><td>wǒ</td><td>I; me</td></tr>
+        <tr><td>這</td><td>zhè</td><td>this</td></tr>
+        <tr><td>先生</td><td>xiānsheng</td><td>Mr.; gentleman</td></tr>
+        <tr><td>好</td><td>hǎo</td><td>good; fine; well</td></tr>
+        <tr><td>姓</td><td>xìng</td><td>to have the surname</td></tr>
+        <tr><td>叫</td><td>jiào</td><td>to be called; to be named</td></tr>
+        <tr><td>你們</td><td>nǐmen</td><td>you (plural)</td></tr>
+        <tr><td>歡迎</td><td>huānyíng</td><td>welcome</td></tr>
+        <tr><td>不客氣</td><td>bú kèqi</td><td>you're welcome</td></tr>
+        <tr><td>謝謝</td><td>xièxie</td><td>thank you</td></tr>
+      </tbody>
+    </table>
+    <div class="tip">Pinyin is a pronunciation guide written with the Roman alphabet. The small marks above some vowels show tones, which are important in Mandarin.</div>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="quiz-wrap">
+    <div class="section-kicker" style="color:#f0c77d">Final page • Practice time</div>
+    <h2>Chinese learning quiz</h2>
+    <p class="lead">Try 15 multiple-choice questions on greetings, vocabulary, pronunciation, names, and the dialogue. Choose one answer for each question and see your score at the end.</p>
+    <div class="quiz-card">
+      <div id="quizStatus">Question 1 of 15</div>
+      <div class="progress"><span id="progressBar"></span></div>
+      <div id="question" class="question"></div>
+      <div id="answers" class="answers"></div>
+      <div id="feedback" aria-live="polite"></div>
+      <div class="quiz-bottom"><span id="scoreLive">Score: 0</span><button id="nextBtn" class="btn" disabled>Next question</button></div>
+    </div>
+    <div id="result" class="quiz-card score" hidden></div>
+  </div>
+</section>
+</main>
+<footer>Chinese Learning Classes · 慢慢學習，每天進步 — Learn slowly, improve every day.</footer>
+<script>
+const searchInput=document.getElementById('wordSearch');
+searchInput.addEventListener('input',()=>{
+  const term=searchInput.value.trim().toLowerCase();
+  document.querySelectorAll('#vocabTable tbody tr').forEach(row=>{
+    row.hidden=!row.innerText.toLowerCase().includes(term);
+  });
+});
+
+const questions=[
+{
+    "q": "What does 你好 (nǐ hǎo) mean?",
+    "a": [
+      "Goodbye",
+      "Hello",
+      "Thank you",
+      "Welcome"
+    ],
+    "c": 1,
+    "why": "你好 is a common way to say “Hello”."
+  },
+{
+    "q": "What does 我 (wǒ) mean?",
+    "a": [
+      "You",
+      "We",
+      "I / me",
+      "This"
+    ],
+    "c": 2,
+    "why": "我 means “I” or “me”."
+  },
+{
+    "q": "Which word means “to come”?",
+    "a": [
+      "來 (lái)",
+      "是 (shì)",
+      "好 (hǎo)",
+      "叫 (jiào)"
+    ],
+    "c": 0,
+    "why": "來 (lái) means “to come”."
+  },
+{
+    "q": "What does 小姐 (xiǎojiě) mean in this lesson?",
+    "a": [
+      "Mr.",
+      "Miss / Ms.",
+      "Teacher",
+      "Friend"
+    ],
+    "c": 1,
+    "why": "小姐 is a polite title meaning Miss or Ms."
+  },
+{
+    "q": "Which Chinese word means “this”?",
+    "a": [
+      "嗎",
+      "你",
+      "這",
+      "姓"
+    ],
+    "c": 2,
+    "why": "這 (zhè) means “this”."
+  },
+{
+    "q": "What does 我們 (wǒmen) mean?",
+    "a": [
+      "I / me",
+      "You (plural)",
+      "We / us",
+      "They"
+    ],
+    "c": 2,
+    "why": "我們 means “we” or “us”."
+  },
+{
+    "q": "In 王凱文 (Wáng Kǎiwén), what is 王 (Wáng)?",
+    "a": [
+      "The given name",
+      "The surname",
+      "The country",
+      "A greeting"
+    ],
+    "c": 1,
+    "why": "Wáng is the family name; Kǎiwén is the given name."
+  },
+{
+    "q": "What does 謝謝 (xièxie) mean?",
+    "a": [
+      "Excuse me",
+      "You are welcome",
+      "Thank you",
+      "Good morning"
+    ],
+    "c": 2,
+    "why": "謝謝 (xièxie) means “Thank you”."
+  },
+{
+    "q": "Which phrase means “You’re welcome”?",
+    "a": [
+      "謝謝",
+      "不客氣",
+      "歡迎",
+      "你好"
+    ],
+    "c": 1,
+    "why": "不客氣 (bú kèqi) means “You’re welcome”."
+  },
+{
+    "q": "What does 先生 (xiānsheng) mean?",
+    "a": [
+      "Miss",
+      "Mr.; gentleman",
+      "Student",
+      "Friend"
+    ],
+    "c": 1,
+    "why": "先生 means “Mr.” or “gentleman”."
+  },
+{
+    "q": "Which word is used to ask a yes/no question at the end of a sentence?",
+    "a": [
+      "嗎 (ma)",
+      "我 (wǒ)",
+      "好 (hǎo)",
+      "來 (lái)"
+    ],
+    "c": 0,
+    "why": "嗎 (ma) is a question particle commonly placed at the end of a yes/no question."
+  },
+{
+    "q": "What does 姓 (xìng) mean?",
+    "a": [
+      "To be called",
+      "To have the surname",
+      "To welcome",
+      "To meet"
+    ],
+    "c": 1,
+    "why": "姓 means “to have the surname”."
+  },
+{
+    "q": "Which word means “to be called” or “to be named”?",
+    "a": [
+      "叫 (jiào)",
+      "接 (jiē)",
+      "這 (zhè)",
+      "你 (nǐ)"
+    ],
+    "c": 0,
+    "why": "叫 (jiào) means “to be called” or “to be named”."
+  },
+{
+    "q": "What does 你們 (nǐmen) mean?",
+    "a": [
+      "I",
+      "You (plural)",
+      "We",
+      "He"
+    ],
+    "c": 1,
+    "why": "你們 means “you” when speaking to more than one person."
+  },
+{
+    "q": "Which word means “welcome”?",
+    "a": [
+      "歡迎 (huānyíng)",
+      "謝謝 (xièxie)",
+      "不客氣 (bú kèqi)",
+      "小姐 (xiǎojiě)"
+    ],
+    "c": 0,
+    "why": "歡迎 (huānyíng) means “welcome”."
+  }
+];
+let current=0,score=0,selected=false;
+const qEl=document.getElementById('question'),aEl=document.getElementById('answers'),feedback=document.getElementById('feedback'),next=document.getElementById('nextBtn');
+function render(){
+ selected=false;const item=questions[current];
+ document.getElementById('quizStatus').textContent=`Question ${current+1} of ${questions.length}`;
+ document.getElementById('progressBar').style.width=`${current/questions.length*100}%`;
+ document.getElementById('scoreLive').textContent=`Score: ${score}`;
+ qEl.textContent=item.q;feedback.textContent='';aEl.innerHTML='';next.disabled=true;next.textContent=current===questions.length-1?'See my result':'Next question';
+ item.a.forEach((answer,index)=>{
+  const b=document.createElement('button');b.className='answer';b.textContent=answer;
+  b.addEventListener('click',()=>{
+   if(selected)return;selected=true;
+   [...aEl.children].forEach((el,i)=>{el.disabled=true;if(i===item.c)el.classList.add('correct');else if(i===index)el.classList.add('wrong')});
+   if(index===item.c){score++;feedback.textContent='✓ Great job! '+item.why}else{feedback.textContent='Not quite. '+item.why}
+   document.getElementById('scoreLive').textContent=`Score: ${score}`;next.disabled=false;
+  });aEl.appendChild(b);
+ });
+}
+next.addEventListener('click',()=>{
+ if(!selected)return;
+ current++;
+ if(current<questions.length){render();return;}
+ document.querySelector('.quiz-card').hidden=true;
+ document.getElementById('result').hidden=false;
+ document.getElementById('result').innerHTML=`<div class="section-kicker">Quiz completed</div><strong>${score}/${questions.length}</strong><h3>${score===questions.length?'Excellent work!':score>=5?'Well done!':'Good practice!'}</h3><p>You answered ${score} out of ${questions.length} questions correctly.</p><button class="btn" id="retryBtn">Try again</button>`;
+ document.getElementById('progressBar').style.width='100%';
+ document.getElementById('retryBtn').addEventListener('click',()=>{current=0;score=0;document.querySelector('.quiz-card').hidden=false;document.getElementById('result').hidden=true;render();});
+});
+render();
+</script>
+</body>
+</html>
